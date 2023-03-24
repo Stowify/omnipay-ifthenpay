@@ -33,7 +33,7 @@ enum PayMethod: string
                 'clientId'       => '', // Optional
                 'clientName'     => '', // Optional
                 'clientUsername' => '', // Optional
-                'url'            => '', // Optional
+                'merchantUrl'    => '', // Optional
                 'expiryDays'     => 0,  // Optional
             ],
         };
