@@ -1,0 +1,52 @@
+{
+  "name": "stowify/omnipay-ifthenpay",
+  "type": "library",
+  "description": "IfThenPay driver for the Omnipay Multi-Gateway payment processing library",
+  "keywords": [
+    "gateway",
+    "merchant",
+    "ifthenpay",
+    "omnipay",
+    "pay",
+    "payment",
+    "mbway",
+    "multibanco"
+  ],
+  "homepage": "https://github.com/Stowify/omnipay-ifthenpay",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Quetzy Garcia",
+      "email": "quetzyg@stowify.pt"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Omnipay\\IfThenPay\\" : "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Omnipay\\IfThenPay\\Test\\": "tests/"
+    }
+  },
+  "require": {
+    "php": "^8.1",
+    "omnipay/common": "^3.2"
+  },
+  "require-dev": {
+    "omnipay/tests": "^4.1",
+    "roave/security-advisories": "dev-latest"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.x-dev"
+    }
+  },
+  "prefer-stable": true,
+  "config": {
+    "allow-plugins": {
+      "php-http/discovery": false
+    }
+  }
+}
