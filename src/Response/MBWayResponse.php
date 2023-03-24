@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Omnipay\IfThenPay\Response;
 
-use DateTime;
+use DateTimeImmutable;
 use Omnipay\Common\Message\AbstractResponse;
 
 /**
@@ -59,11 +59,11 @@ class MBWayResponse extends AbstractResponse
     /**
      * The operation timestamp.
      *
-     * @return ?DateTime
+     * @return ?DateTimeImmutable
      * @throws \Exception
      */
-    public function getTimestamp(): ?DateTime
+    public function getTimestamp(): ?DateTimeImmutable
     {
-        return new DateTime($this->data['DataHora']);
+        return new DateTimeImmutable($this->data['DataHora']);
     }
 }
