@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Omnipay\IfThenPay;
+namespace Omnipay\IfThenPay\Enum;
 
 use Omnipay\IfThenPay\Request\MBWayRequest;
 use Omnipay\IfThenPay\Request\MultibancoRequest;
