@@ -7,9 +7,6 @@ namespace Omnipay\IfThenPay\Response;
 use DateTimeImmutable;
 use Omnipay\Common\Message\AbstractResponse;
 
-/**
- * @link https://helpdesk.ifthenpay.com/en/support/solutions/articles/79000086376-api-mbway
- */
 class MBWayResponse extends AbstractResponse
 {
     /**

@@ -8,6 +8,9 @@ use Omnipay\Common\Exception\InvalidRequestException;
 use Omnipay\IfThenPay\Response\MBWayResponse;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @link https://helpdesk.ifthenpay.com/en/support/solutions/articles/79000086376-api-mbway
+ */
 class MBWayRequest extends AbstractRequest
 {
     private const CHANNEL    = '03';
@@ -35,7 +38,7 @@ class MBWayRequest extends AbstractRequest
             'valor'      => $this->getAmount(),
             'descricao'  => $this->getDescription(),
             'nrtlm'      => $this->getClientPhone(),
-            'email'      => $this->getClientEmail()
+            'email'      => $this->getClientEmail(),
         ];
     }
 
