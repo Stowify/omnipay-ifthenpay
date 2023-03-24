@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Omnipay\IfThenPay\Request;
 
 use Omnipay\Common\Exception\InvalidRequestException;
-use Omnipay\Common\Message\ResponseInterface;
 use Omnipay\IfThenPay\Response\MBWayResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -42,7 +41,7 @@ class MBWayRequest extends AbstractRequest
 
     /**
      * @param  mixed  $data
-     * @return ResponseInterface
+     * @return MBWayResponse
      */
     public function sendData($data): MBWayResponse
     {
