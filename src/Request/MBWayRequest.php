@@ -23,6 +23,7 @@ class MBWayRequest extends AbstractRequest
      */
     public function getData(): array
     {
+        // Required properties
         $this->validate(
             'key',
             'reference',

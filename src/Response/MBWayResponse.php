@@ -9,6 +9,8 @@ use Omnipay\Common\Message\AbstractResponse;
 
 class MBWayResponse extends AbstractResponse
 {
+    private const CODE_SUCCESS = '000';
+
     /**
      * The Gateway's transaction reference.
      *
@@ -50,7 +52,7 @@ class MBWayResponse extends AbstractResponse
      */
     public function isSuccessful(): bool
     {
-        return $this->getCode() === '000';
+        return $this->getCode() === self::CODE_SUCCESS;
     }
 
     /**
