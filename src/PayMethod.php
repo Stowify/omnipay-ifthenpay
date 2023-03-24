@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Omnipay\IfThenPay;
 
+use Omnipay\IfThenPay\Request\MBWayRequest;
+use Omnipay\IfThenPay\Request\MultibancoRequest;
+
 enum PayMethod: string
 {
     case MBWay      = 'mbway';
@@ -33,6 +36,14 @@ enum PayMethod: string
                 'url'            => '', // Optional
                 'expiryDays'     => 0,  // Optional
             ],
+        };
+    }
+
+    public function requestClass(): string
+    {
+        return match ($this) {
+            self::MBWay      => MBWayRequest::class,
+            self::Multibanco => MultibancoRequest::class,
         };
     }
 }
