@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Omnipay\IfThenPay\Request;
 
+use LengthException;
 use Omnipay\Common\Exception\InvalidRequestException;
 use Omnipay\IfThenPay\Response\MultibancoResponse;
 use RangeException;
@@ -16,6 +17,19 @@ class MultibancoRequest extends AbstractRequest
 {
     private const BASE_URL   = 'https://ifthenpay.com';
     private const MEDIA_TYPE = 'application/json';
+
+    /**
+     * @param  string  $value
+     * @return self
+     */
+    public function setReference(string $value): self
+    {
+        if (mb_strlen($value) > 25) {
+            throw new LengthException('The reference value must not exceed 25 characters');
+        }
+
+        return $this->setParameter('reference', $value);
+    }
 
     /**
      * @return ?string

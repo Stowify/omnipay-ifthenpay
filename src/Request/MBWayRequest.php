@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Omnipay\IfThenPay\Request;
 
+use LengthException;
 use Omnipay\Common\Exception\InvalidRequestException;
 use Omnipay\IfThenPay\Response\MBWayResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,6 +17,19 @@ class MBWayRequest extends AbstractRequest
     private const CHANNEL    = '03';
     private const BASE_URL   = 'https://mbway.ifthenpay.com';
     private const MEDIA_TYPE = 'application/x-www-form-urlencoded';
+
+    /**
+     * @param  string  $value
+     * @return self
+     */
+    public function setReference(string $value): self
+    {
+        if (mb_strlen($value) > 15) {
+            throw new LengthException('The reference value must not exceed 15 characters');
+        }
+
+        return $this->setParameter('reference', $value);
+    }
 
     /**
      * @return array

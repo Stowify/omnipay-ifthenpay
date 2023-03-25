@@ -36,15 +36,6 @@ abstract class AbstractRequest extends BaseAbstractRequest
     }
 
     /**
-     * @param  string  $value
-     * @return self
-     */
-    public function setReference(string $value): self
-    {
-        return $this->setParameter('reference', $value);
-    }
-
-    /**
      * @return ?string
      */
     public function getClientPhone(): ?string
