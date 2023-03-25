@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Omnipay\IfThenPay\Request;
 
+use DomainException;
+use LengthException;
 use Omnipay\Common\Message\AbstractRequest as BaseAbstractRequest;
 
 abstract class AbstractRequest extends BaseAbstractRequest
@@ -49,6 +51,10 @@ abstract class AbstractRequest extends BaseAbstractRequest
      */
     public function setClientPhone(string $value): self
     {
+        if (mb_strlen($value) > 200) {
+            throw new LengthException('The client phone value must not exceed 200 characters');
+        }
+
         return $this->setParameter('clientPhone', $value);
     }
 
@@ -66,6 +72,14 @@ abstract class AbstractRequest extends BaseAbstractRequest
      */
     public function setClientEmail(string $value): self
     {
+        if (mb_strlen($value) > 200) {
+            throw new LengthException('The client email value must not exceed 200 characters');
+        }
+
+        if (filter_var($value, FILTER_VALIDATE_EMAIL) === false) {
+            throw new DomainException('Invalid client email');
+        }
+
         return $this->setParameter('clientEmail', $value);
     }
 
