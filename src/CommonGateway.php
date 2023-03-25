@@ -10,7 +10,7 @@ use Omnipay\Common\Message\RequestInterface;
 use Omnipay\IfThenPay\Enum\PayMethod;
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 
-class Gateway extends AbstractGateway
+class CommonGateway extends AbstractGateway
 {
     protected PayMethod $payMethod;
 
