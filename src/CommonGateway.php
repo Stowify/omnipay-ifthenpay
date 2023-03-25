@@ -10,7 +10,7 @@ use Omnipay\Common\Message\RequestInterface;
 use Omnipay\IfThenPay\Enum\PayMethod;
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 
-class CommonGateway extends AbstractGateway
+abstract class CommonGateway extends AbstractGateway
 {
     protected PayMethod $payMethod;
 
@@ -24,16 +24,6 @@ class CommonGateway extends AbstractGateway
         $this->payMethod = $payMethod;
 
         parent::__construct($httpClient, $httpRequest);
-    }
-
-    /**
-     * The gateway display name.
-     *
-     * @return string
-     */
-    public function getName(): string
-    {
-        return 'IfThenPay';
     }
 
     /**
