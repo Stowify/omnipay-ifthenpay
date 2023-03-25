@@ -32,6 +32,19 @@ class MBWayRequest extends AbstractRequest
     }
 
     /**
+     * @param  string  $value
+     * @return self
+     */
+    public function setDescription($value): self
+    {
+        if (mb_strlen($value) > 50) {
+            throw new LengthException('The description value must not exceed 50 characters');
+        }
+
+        return $this->setParameter('description', $value);
+    }
+
+    /**
      * @return array
      * @throws InvalidRequestException
      */

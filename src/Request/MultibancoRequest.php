@@ -32,6 +32,19 @@ class MultibancoRequest extends AbstractRequest
     }
 
     /**
+     * @param  string  $value
+     * @return self
+     */
+    public function setDescription($value): self
+    {
+        if (mb_strlen($value) > 200) {
+            throw new LengthException('The description value must not exceed 200 characters');
+        }
+
+        return $this->setParameter('description', $value);
+    }
+
+    /**
      * @return ?string
      */
     public function getClientId(): ?string
