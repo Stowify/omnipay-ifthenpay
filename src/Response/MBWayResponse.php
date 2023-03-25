@@ -12,6 +12,16 @@ class MBWayResponse extends AbstractResponse
     private const CODE_SUCCESS = '000';
 
     /**
+     * The amount being charged.
+     *
+     * @return ?string
+     */
+    public function getAmount(): ?string
+    {
+        return $this->data['Valor'];
+    }
+
+    /**
      * The Gateway's transaction reference.
      *
      * @return ?string

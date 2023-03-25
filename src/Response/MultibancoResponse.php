@@ -12,6 +12,16 @@ class MultibancoResponse extends AbstractResponse
     private const CODE_SUCCESS = '0';
 
     /**
+     * The amount being charged.
+     *
+     * @return ?string
+     */
+    public function getAmount(): ?string
+    {
+        return $this->data['Amount'];
+    }
+
+    /**
      * The Gateway's transaction reference.
      *
      * @return ?string
