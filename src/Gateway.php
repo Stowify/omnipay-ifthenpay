@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 
 class Gateway extends AbstractGateway
 {
-    private PayMethod $payMethod;
+    protected PayMethod $payMethod;
 
     /**
      * @param  PayMethod  $payMethod
