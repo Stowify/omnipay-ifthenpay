@@ -18,4 +18,14 @@ final class MultibancoGateway extends CommonGateway
     {
         parent::__construct(PayMethod::Multibanco, $httpClient, $httpRequest);
     }
+
+    /**
+     * The gateway display name.
+     *
+     * @return string
+     */
+    public function getName(): string
+    {
+        return 'IfThenPay Multibanco Gateway';
+    }
 }

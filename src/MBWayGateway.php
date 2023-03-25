@@ -18,4 +18,14 @@ final class MBWayGateway extends CommonGateway
     {
         parent::__construct(PayMethod::MBWay, $httpClient, $httpRequest);
     }
+
+    /**
+     * The gateway display name.
+     *
+     * @return string
+     */
+    public function getName(): string
+    {
+        return 'IfThenPay MBWay Gateway';
+    }
 }
