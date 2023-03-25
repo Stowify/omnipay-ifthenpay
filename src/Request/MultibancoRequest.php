@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Omnipay\IfThenPay\Request;
 
+use DomainException;
 use LengthException;
 use Omnipay\Common\Exception\InvalidRequestException;
 use Omnipay\IfThenPay\Response\MultibancoResponse;
@@ -58,6 +59,10 @@ class MultibancoRequest extends AbstractRequest
      */
     public function setClientId(string $value): self
     {
+        if (mb_strlen($value) > 200) {
+            throw new LengthException('The client ID value must not exceed 200 characters');
+        }
+
         return $this->setParameter('clientId', $value);
     }
 
@@ -75,6 +80,10 @@ class MultibancoRequest extends AbstractRequest
      */
     public function setClientName(string $value): self
     {
+        if (mb_strlen($value) > 200) {
+            throw new LengthException('The client name value must not exceed 200 characters');
+        }
+
         return $this->setParameter('clientName', $value);
     }
 
@@ -92,6 +101,10 @@ class MultibancoRequest extends AbstractRequest
      */
     public function setClientUsername(string $value): self
     {
+        if (mb_strlen($value) > 200) {
+            throw new LengthException('The client username value must not exceed 200 characters');
+        }
+
         return $this->setParameter('clientUsername', $value);
     }
 
@@ -101,6 +114,23 @@ class MultibancoRequest extends AbstractRequest
     public function getMerchantUrl(): ?string
     {
         return $this->getParameter('merchantUrl');
+    }
+
+    /**
+     * @param  string  $value
+     * @return self
+     */
+    public function setMerchantUrl(string $value): self
+    {
+        if (mb_strlen($value) > 200) {
+            throw new LengthException('The merchant URL value must not exceed 200 characters');
+        }
+
+        if (filter_var($value, FILTER_VALIDATE_URL) === false) {
+            throw new DomainException('Invalid merchant URL');
+        }
+
+        return $this->setParameter('merchantUrl', $value);
     }
 
     /**
@@ -122,15 +152,6 @@ class MultibancoRequest extends AbstractRequest
     public function getExpiryDays(): ?int
     {
         return $this->getParameter('expiryDays');
-    }
-
-    /**
-     * @param  string  $value
-     * @return self
-     */
-    public function setMerchantUrl(string $value): self
-    {
-        return $this->setParameter('merchantUrl', $value);
     }
 
     /**
