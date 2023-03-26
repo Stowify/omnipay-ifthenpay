@@ -16,6 +16,7 @@ class MBWayRequest extends AbstractRequest
 {
     private const CHANNEL    = '03';
     private const BASE_URL   = 'https://mbway.ifthenpay.com';
+    private const ENDPOINT   = 'ifthenpaymbw.asmx/SetPedidoJSON';
     private const MEDIA_TYPE = 'application/x-www-form-urlencoded';
 
     /**
@@ -82,7 +83,7 @@ class MBWayRequest extends AbstractRequest
 
         $response = $this->httpClient->request(
             Request::METHOD_POST,
-            $this->buildURL(self::BASE_URL, 'ifthenpaymbw.asmx/SetPedidoJSON'),
+            $this->buildURL(self::BASE_URL, self::ENDPOINT),
             $headers,
             http_build_query($data),
         );

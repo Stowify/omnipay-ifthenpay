@@ -16,8 +16,10 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class MultibancoRequest extends AbstractRequest
 {
-    private const BASE_URL   = 'https://ifthenpay.com';
-    private const MEDIA_TYPE = 'application/json';
+    private const BASE_URL            = 'https://ifthenpay.com';
+    private const ENDPOINT_SANDBOX    = 'api/multibanco/reference/sandbox';
+    private const ENDPOINT_PRODUCTION = 'api/multibanco/reference/init';
+    private const MEDIA_TYPE          = 'application/json';
 
     /**
      * @param  string  $value
@@ -194,7 +196,7 @@ class MultibancoRequest extends AbstractRequest
 
         $response = $this->httpClient->request(
             Request::METHOD_POST,
-            $this->buildURL(self::BASE_URL, 'api/multibanco/reference', $this->getTestMode() ? 'sandbox' : 'init'),
+            $this->buildURL(self::BASE_URL, $this->getTestMode() ? self::ENDPOINT_SANDBOX : self::ENDPOINT_PRODUCTION),
             $headers,
             json_encode($data),
         );
