@@ -24,17 +24,18 @@ enum PayMethod: string
                 'clientEmail' => '', // Optional
             ],
             self::Multibanco => [
-                'key'            => '', // Required
-                'reference'      => '', // Required
-                'amount'         => '', // Required
-                'description'    => '', // Optional
-                'clientPhone'    => '', // Optional
-                'clientEmail'    => '', // Optional
-                'clientId'       => '', // Optional
-                'clientName'     => '', // Optional
-                'clientUsername' => '', // Optional
-                'merchantUrl'    => '', // Optional
-                'expiryDays'     => 0,  // Optional
+                'key'            => '',   // Required
+                'reference'      => '',   // Required
+                'amount'         => '',   // Required
+                'description'    => '',   // Optional
+                'clientPhone'    => '',   // Optional
+                'clientEmail'    => '',   // Optional
+                'clientId'       => '',   // Optional
+                'clientName'     => '',   // Optional
+                'clientUsername' => '',   // Optional
+                'merchantUrl'    => '',   // Optional
+                'expiryDays'     => 0,    // Optional
+                'testMode'       => false // Optional
             ],
         };
     }
