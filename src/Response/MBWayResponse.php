@@ -7,7 +7,7 @@ namespace Omnipay\IfThenPay\Response;
 use DateTimeImmutable;
 use Omnipay\Common\Message\AbstractResponse;
 
-class MBWayResponse extends AbstractResponse
+final class MBWayResponse extends AbstractResponse
 {
     private const CODE_SUCCESS = '000';
 

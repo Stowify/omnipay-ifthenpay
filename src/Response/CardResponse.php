@@ -6,7 +6,7 @@ namespace Omnipay\IfThenPay\Response;
 
 use Omnipay\Common\Message\AbstractResponse;
 
-class CardResponse extends AbstractResponse
+final class CardResponse extends AbstractResponse
 {
     private const CODE_SUCCESS = '0';
 
