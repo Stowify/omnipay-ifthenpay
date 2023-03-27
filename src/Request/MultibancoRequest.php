@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * @link https://helpdesk.ifthenpay.com/en/support/solutions/articles/79000128866-api-request-multibanco-references
  */
-class MultibancoRequest extends AbstractRequest
+final class MultibancoRequest extends AbstractRequest
 {
     private const BASE_URL            = 'https://ifthenpay.com';
     private const ENDPOINT_SANDBOX    = 'api/multibanco/reference/sandbox';

@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * @link https://helpdesk.ifthenpay.com/en/support/solutions/articles/79000086376-api-mbway
  */
-class MBWayRequest extends AbstractRequest
+final class MBWayRequest extends AbstractRequest
 {
     private const CHANNEL    = '03';
     private const BASE_URL   = 'https://mbway.ifthenpay.com';

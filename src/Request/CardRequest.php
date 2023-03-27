@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * @link https://helpdesk.ifthenpay.com/pt-PT/support/solutions/articles/79000123125-api-cart%C3%B5es-de-cr%C3%A9dito
  */
-class CardRequest extends AbstractRequest
+final class CardRequest extends AbstractRequest
 {
     private const BASE_URL   = 'https://ifthenpay.com';
     private const ENDPOINT   = 'api/creditcard/init';
