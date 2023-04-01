@@ -120,6 +120,7 @@ final class CardRequest extends AbstractRequest
     {
         // Required properties
         $this->validate(
+            'key',
             'reference',
             'amount',
             'successUrl',
